@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 * {
+  font-family: "Inter", sans-serif !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -130,4 +131,8 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+input{
+  border: none;
+  outline: none;
 }
