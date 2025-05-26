@@ -1,7 +1,13 @@
 <script setup>
+import { ref } from "vue";
 import search from "../assets/search.svg";
 import sort from "../assets/sort.svg";
-let links = ['Все', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android']
+let links = ["Все", "Designers", "Analysts", "Managers", "iOS", "Android"];
+let activelink = ref("Все");
+function changelink(l) {
+  console.log(l, activelink);
+  activelink.value = l;
+}
 </script>
 
 <template>
@@ -17,7 +23,12 @@ let links = ['Все', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android']
       <img :src="sort" class="sort-icon" />
     </label>
     <nav>
-      <a>Все</a>
+      <a :class="{ 'activelink': activelink == link }"
+        @click="changelink(link)"
+        v-for="(link, index) of links"
+        :key="index"
+        >{{ link }}</a
+      >
     </nav>
   </header>
 </template>
@@ -26,7 +37,7 @@ let links = ['Все', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android']
 header {
   padding-top: 16px;
   background-color: #fff;
-
+  border-bottom: 1px solid #c3c3c6;
   h1 {
     margin-left: 24px;
     font-size: 24px;
@@ -53,11 +64,29 @@ header {
       font-size: 15px;
       width: 100%;
       background: #f7f7f8;
-      color: #C3C3C6;
+      color: #c3c3c6;
     }
     .sort-icon {
       width: 20px;
       height: 12px;
+    }
+  }
+
+  nav {
+    display: flex;
+    padding: 16px 16px 0px 16px;
+    overflow-x: auto;
+    .activelink {
+      color: #050510;
+      border-bottom: 2.5px solid rgb(93, 53, 153);
+    }
+
+    a {
+      padding: 8px 12px;
+      white-space: nowrap;
+      color: #97979B;
+      font-weight: 500;
+      cursor: pointer;
     }
   }
 }
