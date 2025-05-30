@@ -1,30 +1,32 @@
-<script setup></script>
+<script setup>
+import Card from "../components/Card.vue";
+let group = [
+  {
+    id: 1,
+    name: "Алексей Миногаров",
+    job: "Analyst",
+    picture:
+      "https://cdn.tripster.ru/thumbs2/c667f64e-e7d7-11ee-9d00-9a3e5354e4cb.1220x600.jpeg",
+  },
+  {
+    id: 2,
+    name: "Алиса Иванова",
+    job: "Designer",
+    picture: "https://rossaprimavera.ru/static/files/64b29563d167.jpg",
+  },
+];
+</script>
 <template>
   <main>
-    <div>
-      <img
-        src="https://cdn.tripster.ru/thumbs2/c667f64e-e7d7-11ee-9d00-9a3e5354e4cb.1220x600.jpeg"
-      />
-      <p>Озеро Веселое</p>
-      <h2>Analyst</h2>
-    </div>
+    <Card v-for="item in group" :key="item.id" :data="item" />
   </main>
 </template>
-<style lang="scss">
+
+<style lang="scss" scoped>
 main {
-  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  div {
-    display: flex;
-
-    img {
-    }
-    p {
-    }
-    h2 {
-    }
-  }
+  padding: 16px;
 }
 </style>
