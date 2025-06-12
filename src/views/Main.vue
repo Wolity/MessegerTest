@@ -1,5 +1,6 @@
 <script setup>
 import Card from "../components/Card.vue";
+import Header from "../components/Header.vue";
 let group = [
   {
     id: 1,
@@ -18,6 +19,7 @@ let group = [
 </script>
 <template>
   <main>
+    <Header />
     <Card v-for="item in group" :key="item.id" :data="item" />
   </main>
 </template>
