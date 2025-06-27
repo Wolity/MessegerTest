@@ -1,6 +1,7 @@
 <script setup></script>
 <template>
   <section>
+    {{ $route.params.id }}
     <nav class="main">
       <img src="../assets/LeftArrow.svg" class="arrow_img" />
       <img
@@ -13,7 +14,7 @@
 
     <div class="info">
       <nav>
-        <img src="../assets/star.svg" class="star"/>
+        <img src="../assets/star.svg" class="star" />
         <p class="date">5 июня 1996</p>
       </nav>
       <h2 class="profile_date">24 года</h2>
@@ -62,11 +63,13 @@ section {
     }
   }
   .info {
-    padding: 25px 0;
+    padding-top: 25px;
+    padding-bottom: 30px;
     align-items: center;
     justify-content: space-between;
     display: flex;
     nav {
+      gap: 12px;
       align-items: center;
       display: flex;
       .star {
@@ -74,17 +77,19 @@ section {
         width: 22px;
         height: 24px;
       }
-       .phone {
+      .date {
+      }
+      .phone {
         margin-left: 18px;
         width: 22px;
         height: 24px;
       }
-      .profile_date{
-        
+      .profile_number {
       }
-      .profile_number{
-
-      }
+    }
+    .profile_date {
+      padding-right: 20px;
+      color: #97979b;
     }
   }
 }

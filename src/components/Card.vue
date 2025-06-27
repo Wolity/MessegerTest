@@ -1,19 +1,18 @@
 <script setup>
+import { RouterLink } from "vue-router";
+
 defineProps({
-    data:Object
-})
+  data: Object,
+});
 </script>
 <template>
-  <div class="profile">
-    <img
-      :src="data.picture"
-      class="avatar"
-    />
+  <router-link :to="{ name: 'detail', params: { id: data.id } }" class="profile">
+    <img :src="data.picture" class="avatar" />
     <div class="info">
       <h2>{{ data.name }}</h2>
       <p>{{ data.job }}</p>
     </div>
-  </div>
+  </router-link>
 </template>
 <style scoped lang="scss">
 .profile {
